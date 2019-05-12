@@ -1,6 +1,7 @@
 #include "rdm.h"
 #include "gnuplot_i.h"
 
+
 void AfficherForces(torseur* t, int i){
     int j;
     printf("\n\n---- Calcul des forces ----\n\n");
@@ -99,7 +100,7 @@ void babar(torseur *t, int origine){
   AfficherMoments(t,0);
 	AfficherMoments(t,1); // AfficherMoments(t,2);marche pas pour 3 torseurs
   AfficherMoments(t,2);
-  
+
 }
 
 void AfficherlesTorseurs(torseur *t, int i){
