@@ -1,7 +1,8 @@
 #include "fonctions.h"
 const int valmax = 10;
 
-void lectureVect(int dim, double vect[]) //Permet à l'utilisateur de remplir un vecteur
+
+void lectureVect(int dim, double vect[]) //Permet ï¿½ l'utilisateur de remplir un vecteur
 {
     int i;
 
@@ -10,7 +11,7 @@ void lectureVect(int dim, double vect[]) //Permet à l'utilisateur de remplir un 
     }
 }
 
-void afficheVect(int dim, double vect[]) //Permet d'afficher à l'écran un vecteur
+void afficheVect(int dim, double vect[]) //Permet d'afficher ï¿½ l'ï¿½cran un vecteur
 {
     int i;
 
@@ -19,7 +20,7 @@ void afficheVect(int dim, double vect[]) //Permet d'afficher à l'écran un vecteu
     }
 }
 
-void lectureMat(int dim, double mat[][valmax]) //permet à l'utilisateur de remplir une matrice ligne par ligne
+void lectureMat(int dim, double mat[][valmax]) //permet ï¿½ l'utilisateur de remplir une matrice ligne par ligne
 {
     int i, j; //i->ligne, j->colonne;
 
@@ -31,7 +32,7 @@ void lectureMat(int dim, double mat[][valmax]) //permet à l'utilisateur de rempl
     }
 }
 
-void afficheMat(int dim, double mat[][valmax]) //Permet d'afficher à l'écran une matrice
+void afficheMat(int dim, double mat[][valmax]) //Permet d'afficher ï¿½ l'ï¿½cran une matrice
 {
     int i, j;
 
@@ -44,7 +45,7 @@ void afficheMat(int dim, double mat[][valmax]) //Permet d'afficher à l'écran une
     }
 }
 
-void resolSys(int dim, double A[][valmax], double b[], double x[])//Résolution d'un système triangulaire supérieur
+void resolSys(int dim, double A[][valmax], double b[], double x[])//Rï¿½solution d'un systï¿½me triangulaire supï¿½rieur
 {
     int i, k, n = dim -1;
     double S; //initialisation du vecteur x (solution)
@@ -54,75 +55,75 @@ void resolSys(int dim, double A[][valmax], double b[], double x[])//Résolution d
         S = 0; // initialise S=0 pour effectuer la somme
 
         for (k = 0 ; k < i ; k ++){
-            S = A[n-i][n-k]*x[n-k]+S;  // Calcul la somme des produits des éléments de x par leur coéfficient (élément de A)
+            S = A[n-i][n-k]*x[n-k]+S;  // Calcul la somme des produits des ï¿½lï¿½ments de x par leur coï¿½fficient (ï¿½lï¿½ment de A)
         }
-        x[n-i] = (b[n-i]-S)/A[n-i][n-i];// résolution de A[n-i][n-i]*x[n-i] + S = b[n-i]
+        x[n-i] = (b[n-i]-S)/A[n-i][n-i];// rï¿½solution de A[n-i][n-i]*x[n-i] + S = b[n-i]
     }
 }
 
-double maximum(int dim, int *i, double A[][valmax], int k)  // Retourne l'élément maximum de la colonne k d'une matrice à partir de la ligne k
-{                                                       //et indique dans *i l'indice de cet élément
+double maximum(int dim, int *i, double A[][valmax], int k)  // Retourne l'ï¿½lï¿½ment maximum de la colonne k d'une matrice ï¿½ partir de la ligne k
+{                                                       //et indique dans *i l'indice de cet ï¿½lï¿½ment
     int j;
     double max = abs(A[k][k]); //initialisation de max
 
     for (j = k+1 ; j < dim ; j++){
-        if (abs(A[j][k]) > max)   // Si l'élément A[j][k] k étant fixé  est plus grand que l'élément précédent
+        if (abs(A[j][k]) > max)   // Si l'ï¿½lï¿½ment A[j][k] k ï¿½tant fixï¿½  est plus grand que l'ï¿½lï¿½ment prï¿½cï¿½dent
         {
-            max = abs(A[j][k]);                     //max vaut alors l'élément actuel
-            *i = j;                                 //et l'indice est écrit dans *i
+            max = abs(A[j][k]);                     //max vaut alors l'ï¿½lï¿½ment actuel
+            *i = j;                                 //et l'indice est ï¿½crit dans *i
         }
     }
     return max;
     }
 
-void changeLigne(int dim, int j, int i, double A[][valmax], double b[]) //change deux lignes i et j d'une matrice et deux éléments d'un vecteur
+void changeLigne(int dim, int j, int i, double A[][valmax], double b[]) //change deux lignes i et j d'une matrice et deux ï¿½lï¿½ments d'un vecteur
 {
     int k;
     double v;   // variable de transition
 
     for(k = 0 ; k < dim ; k++){
         v = A[j][k];
-        A[j][k] = A[i][k];//on intervertit les éléments colonnes par colonnes
+        A[j][k] = A[i][k];//on intervertit les ï¿½lï¿½ments colonnes par colonnes
         A[i][k] = v;
     }
 
     v = b[i];
-    b[i] = b[j]; // on intervertit les éléments du vecteur
+    b[i] = b[j]; // on intervertit les ï¿½lï¿½ments du vecteur
     b[j] = v;
 }
 
-void Metzero(int dim, double A[][valmax], double b[], int k) // Applique le pivot situé en A[k][k]
+void Metzero(int dim, double A[][valmax], double b[], int k) // Applique le pivot situï¿½ en A[k][k]
 {
     int i, j;
-    double r, pivot = A[k][k];  // r est le rapport A[i][k]/pivot qui sera fixé pour chaque ligne
+    double r, pivot = A[k][k];  // r est le rapport A[i][k]/pivot qui sera fixï¿½ pour chaque ligne
 
-    for (i = k+1 ; i < dim ; i++)  //on effectue le calcul pour les lignes et colonnes inférieures  à l'élément pivot
+    for (i = k+1 ; i < dim ; i++)  //on effectue le calcul pour les lignes et colonnes infï¿½rieures  ï¿½ l'ï¿½lï¿½ment pivot
     {
         r = A[i][k]/pivot; //calcul du rapport pour la ligne actuelle
         for (j = k ; j < dim ; j++){
 
             A[i][j] = A[i][j]-A[k][j]*r; //on effectue Ligne[i]-r*Ligne[k]
         }
-        b[i] = b[i]-b[k]*r;  //De même pour les solutions afin de garder l'équivalence entre le nouveau système et l'ancien
+        b[i] = b[i]-b[k]*r;  //De mï¿½me pour les solutions afin de garder l'ï¿½quivalence entre le nouveau systï¿½me et l'ancien
     }
 }
 
 
-int Triangularisation(int dim, double A[][valmax], double b[])//Permet de triangularisé le système Ax=b (A devient triangulaire supérieure)
-{                               // la fonction retourne 0 le cas où il est impossible de calculer les solutions (déterminant nul)
+int Triangularisation(int dim, double A[][valmax], double b[])//Permet de triangularisï¿½ le systï¿½me Ax=b (A devient triangulaire supï¿½rieure)
+{                               // la fonction retourne 0 le cas oï¿½ il est impossible de calculer les solutions (dï¿½terminant nul)
     int j = 0, i;
     double max = -1;
 
-    while (j < dim && max != 0) //l'opération s'effectue sur toutes les colonnes et la fonction doit s'arrêter dans le cas où le déterminant est nul
+    while (j < dim && max != 0) //l'opï¿½ration s'effectue sur toutes les colonnes et la fonction doit s'arrï¿½ter dans le cas oï¿½ le dï¿½terminant est nul
     {                      // car dans ce cas il est impossible de trouver de solution
-        if (A[j][j] == 0)       //dans le cas où le pivot de la colonne est nul on lance la recherche du maximum qui renvoie le maximum
+        if (A[j][j] == 0)       //dans le cas oï¿½ le pivot de la colonne est nul on lance la recherche du maximum qui renvoie le maximum
         {
-            max = maximum(dim, &i, A, j);  // si tous les élément de la colonne sont nul max =0 et on sort du programme
+            max = maximum(dim, &i, A, j);  // si tous les ï¿½lï¿½ment de la colonne sont nul max =0 et on sort du programme
             if (max != 0)
                 changeLigne(dim, j, i, A, b);  // Dans le cas ou il y a un maximum on intervertit les lignes
         }
         if (A[j][j] != 0)
-            Metzero(dim, A, b, j); // si le déterminant n'est pas nul,et le pivot n'est plus nul,on applique la fonction metzero
+            Metzero(dim, A, b, j); // si le dï¿½terminant n'est pas nul,et le pivot n'est plus nul,on applique la fonction metzero
         j++; //on change de colonne
     }
     if(max == 0)
@@ -131,14 +132,14 @@ int Triangularisation(int dim, double A[][valmax], double b[])//Permet de triang
         return 1;
 }
 
-void systeme()//demande des données à l'utilisateur
+void systeme()//demande des donnï¿½es ï¿½ l'utilisateur
 {
     int val;
 
-    double A[valmax][valmax];//matrica rentrée par l'utilisateur
-    double b[valmax], x[valmax];//b->vecteur rentré par l'utilisateur      x-> vecteur solution du système
+    double A[valmax][valmax];//matrica rentrï¿½e par l'utilisateur
+    double b[valmax], x[valmax];//b->vecteur rentrï¿½ par l'utilisateur      x-> vecteur solution du systï¿½me
 
-    printf("Nombre d'inconnues?\n");//le nombre d'inconnues sera égale à la dimension de la matrice et du vecteur
+    printf("Nombre d'inconnues?\n");//le nombre d'inconnues sera ï¿½gale ï¿½ la dimension de la matrice et du vecteur
     scanf("%d",&val);
 
     printf("Saisie Matrice en ligne\n");
@@ -148,10 +149,10 @@ void systeme()//demande des données à l'utilisateur
     lectureVect(val, b);
 
     printf("\n");
-    printf("Votre matrice:\n");//affiche la matrice rentrée
+    printf("Votre matrice:\n");//affiche la matrice rentrï¿½e
     afficheMat(val, A);
 
-    printf("Votre vecteur:\n");//affiche le vecteur rentré
+    printf("Votre vecteur:\n");//affiche le vecteur rentrï¿½
     afficheVect(val, b);
     printf("\n");
 
@@ -161,5 +162,5 @@ void systeme()//demande des données à l'utilisateur
         afficheVect(val, x);
     }
     else
-        printf("Le déterminant est nul, le système n'est pas de Cramer\n");
+        printf("Le dï¿½terminant est nul, le systï¿½me n'est pas de Cramer\n");
 }
