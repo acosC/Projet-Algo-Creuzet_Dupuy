@@ -1,5 +1,5 @@
 #include "rdm.h"
-
+// test update github sur la partie Brouillon
 const int valMax = 4;
 
 void NombrePoints(int nombre_point){
