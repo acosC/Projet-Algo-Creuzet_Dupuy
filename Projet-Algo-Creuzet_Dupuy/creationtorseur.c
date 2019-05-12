@@ -17,6 +17,7 @@ void NombrePoints(int nombre_point){
 }
 
 void Initialisation(int i, torseur* t){
+
     int j;
 
     for (j = 0 ; j < 3 ; j++){
